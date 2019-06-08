@@ -117,9 +117,7 @@ def add_numbers_post():
   	      try:
   	      	for str_num in request.form['text'].split():
   	      		total += int(str_num)
-			
-		tip_total = 0.18 * total
-  	      	return render_template('tip_calculator.html', result=str(tip_total))
+  	      	return render_template('tip_calculator.html', result=str(total * 0.18))
   	      except ValueError:
   	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
