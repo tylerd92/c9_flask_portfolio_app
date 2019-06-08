@@ -56,24 +56,6 @@ def shopping_list_post():
             return render_template('shopping_list.html', result="\n".join([str(item) for item in shop_list]))
           except ValueError:
             return "Easy now! Let's keep it simple! Just words with a space between them"
-
-
-@app.route('/tip_calculator', methods=['GET', 'POST'])
-def tip_calculator_post():
-    if request.method == 'GET':
-        return render_template('tip_calculator.html')
-    elif request.method == 'POST':
-        print(request.form['text'].split())
-  	    total = 0
-        try:
-            tip_percentage = 0.18
-            tip_amount = 0
-            for str_num in request.form['text'].split():
-                total += int(str_num)
-            tip_amount = total * tip_percentage
-            return render_template('add_numbers.html', result=str(tip_amount))
-        except ValueError:
-            return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
           
   	      
 @app.route('/time', methods=['GET','POST'])
