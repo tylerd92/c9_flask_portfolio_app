@@ -76,7 +76,29 @@ def time_post():
               
               
             return render_template('time.html', result=answer)
+	
 
+@app.route('/tip_calculator', methods=['GET','POST'])
+def shopping_list_post():
+	  # --> ['5', '6', '8']
+	  # print(type(request.form['text']))
+
+    if request.method == 'GET':
+      return render_template('shopping_list.html')
+    elif request.method == 'POST':
+          print(request.form['text'].split())
+          
+          shop_list = []
+          try:
+            for item in request.form['text'].split():
+              
+              shop_list.append(item)
+
+              
+              
+            return render_template('shopping_list.html', result="\n".join([str(item) for item in shop_list]))
+          except ValueError:
+            return "Easy now! Let's keep it simple! Just words with a space between them"
          
 
 @app.route('/python_apps')
