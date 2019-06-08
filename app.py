@@ -106,7 +106,7 @@ def time_post():
 
 
 @app.route('/tip_calculator', methods=['GET','POST'])
-def add_numbers_post():
+def tip_calculator_post():
 	  # --> ['5', '6', '8']
 	  # print(type(request.form['text']))
 	  if request.method == 'GET':
