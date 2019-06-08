@@ -65,9 +65,9 @@ def tip_calculator_post():
     elif request.method == 'POST':
         print(request.form['text'].split())
   	    total = 0
-        tip_percentage = 0.18
-        tip_amount = 0
         try:
+            tip_percentage = 0.18
+            tip_amount = 0
             for str_num in request.form['text'].split():
                 total += int(str_num)
             tip_amount = total * tip_percentage
