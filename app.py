@@ -22,17 +22,17 @@ def profile(name):
 def add_numbers_post():
 	  # --> ['5', '6', '8']
 	  # print(type(request.form['text']))
-	  if request.method == 'GET':
-	  	return render_template('add_numbers.html')
-	  elif request.method == 'POST':
-  	      print(request.form['text'].split())
-  	      total = 0
-  	      try:
-  	      	for str_num in request.form['text'].split():
-  	      		total += int(str_num)
-  	      	return render_template('add_numbers.html', result=str(total))
-  	      except ValueError:
-  	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
+    if request.method == 'GET':
+        return render_template('add_numbers.html')
+    elif request.method == 'POST':
+        print(request.form['text'].split())
+        total = 0
+        try:
+            for str_num in request.form['text'].split():
+                total += int(str_num)
+            return render_template('add_numbers.html', result=str(total))
+        except ValueError:
+            return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
 
 @app.route('/shopping_list', methods=['GET','POST'])
@@ -41,22 +41,19 @@ def shopping_list_post():
 	  # print(type(request.form['text']))
 
     if request.method == 'GET':
-      return render_template('shopping_list.html')
+        return render_template('shopping_list.html')
     elif request.method == 'POST':
-          print(request.form['text'].split())
-          
-          shop_list = []
-          try:
+        print(request.form['text'].split())
+        
+        shop_list = []
+        try:
             for item in request.form['text'].split():
-              
-              shop_list.append(item)
-
-              
-              
+                
+                shop_list.append(item)
             return render_template('shopping_list.html', result="\n".join([str(item) for item in shop_list]))
-          except ValueError:
+        except ValueError:
             return "Easy now! Let's keep it simple! Just words with a space between them"
-          
+        
   	      
 @app.route('/time', methods=['GET','POST'])
 def time_post():
@@ -107,19 +104,19 @@ def time_post():
 
 @app.route('/tip_calculator', methods=['GET','POST'])
 def tip_calculator_post():
-	  # --> ['5', '6', '8']
-	  # print(type(request.form['text']))
-	  if request.method == 'GET':
-	  	return render_template('tip_calculator.html')
-	  elif request.method == 'POST':
-  	      print(request.form['text'].split())
-  	      total = 0
-  	      try:
-  	      	for str_num in request.form['text'].split():
-  	      		total += int(str_num)
-  	      	return render_template('tip_calculator.html', result=str(total * 0.18))
-  	      except ValueError:
-  	      	return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
+    # --> ['5', '6', '8']
+    # print(type(request.form['text']))
+    if request.method == 'GET':
+        return render_template('tip_calculator.html')
+    elif request.method == 'POST':
+        print(request.form['text'].split())
+        total = 0
+        try:
+            for str_num in request.form['text'].split():
+                total += int(str_num)
+            return render_template('tip_calculator.html', result=str(total * 0.18))
+        except ValueError:
+            return "Easy now! Let's keep it simple! 2 numbers with a space between them please"
 
 @app.route('/python_apps')
 def python_apps_page():
